@@ -20,17 +20,17 @@ export function DraggablesContainer({draggableContainerId, children}) {
 }
 
 export function Draggable({draggableContainerId, draggable, children}) {
-    const { handleDragStart, handleDragOver, handleDrop } = useDraggable();
+    const { handleDragStart, handleDragOver, handleDrop, dragOverId } = useDraggable();
 
     return (
         <div 
-            className="card"
+            className={`card ${!!dragOverId && draggable.id === dragOverId ? 'drag-over' : ''}`}
             key={draggable.id}
             onDragStart={e => handleDragStart(e, draggable.id)}
-            onDragOver={handleDragOver}
+            onDragOver={e => handleDragOver(e, draggable.id)}
             onDrop={e => handleDrop(e, draggableContainerId, draggable.id)}
             draggable
-            >
+        >
             {children}
         </div>
     )
@@ -79,8 +79,7 @@ export function Input({draggableContainerId, placeholder="Novo conteúdo...", on
   
     const save = (data) => {
         const newItem = {id: uuidv4(), title: data, stepId: draggableContainerId}
-
-        console.log(newItem)
+        
         setDraggables([...draggables, newItem]);
     }
 

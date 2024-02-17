@@ -12,6 +12,8 @@
     gap: 0.4rem;
 
     padding: 10px;
+
+    margin: 0 auto;
 }
 
 .title-container {
@@ -35,7 +37,7 @@
     justify-content: center;
 }
 
-.title-container  svg:hover{
+.title-container svg:hover{
     cursor: pointer;
     background-color: #2c2c2c;
 }
@@ -51,6 +53,8 @@
 
     min-height: 60px;
     font-size: 0.8rem;
+
+    transition: ease-in-out 0.1s;
 }
 
 .card:hover {
@@ -60,6 +64,10 @@
 
 .card:active {
     cursor: grabbing;
+}
+
+.drag-over {
+    background-color: #1E90FF;
 }
 
 .button {

@@ -1,42 +1,46 @@
 
+import { useEffect } from "react";
+
 import { useDraggable } from "../hooks/useDraggable";
+
+import { v4 as uuidv4 } from 'uuid';
 
 import PageTitle from "../components/PageTitle";
 import { Draggable, DraggableTitle, DraggablesContainer, Input } from "../components/Draggable";
-import { useEffect } from "react";
 
+const ids = [uuidv4(), uuidv4(), uuidv4(), uuidv4()];
 
 const mySteps = [
     { 
-        id: 1,
+        id: ids[0],
         title: "Pendente", 
     }, 
     {
-        id: 2,
+        id: ids[1],
         title: "Estudando", 
     }, 
     { 
-        id: 3,
+        id: ids[2],
         title: "Revisando",
     }, 
     {   
-        id: 4,
+        id: ids[3],
         title: "Fixado", 
     }
 ]
 
 const testDraggables = [
-    {id: 1, title: "Redux", stepId: 1}, 
-    {id: 2, title: "Contexto (useContext)", stepId: 1}, 
-    {id: 3, title: "Estado dos componentes (useState)", stepId: 4},
-    {id: 21, title: "Referencia de componentes (useRef)", stepId: 3}, 
-    {id: 16, title: "CSS Avançado", stepId: 2}, 
-    {id: 27, title: "Javascript - Métodos de array", stepId: 3},
-    {id: 11, title: "Javascript - Classe", stepId: 3}, 
-    {id: 18, title: "Vida do componente", stepId: 4}, 
-    {id: 25, title: "HTML", stepId: 4},
-    {id: 30, title: "Task 30", stepId: 4},
-    {id: 12, title: "Task 12", stepId: 1}
+    {id: uuidv4(), title: "Redux", stepId: ids[0]}, 
+    {id: uuidv4(), title: "Contexto (useContext)", stepId: ids[0]}, 
+    {id: uuidv4(), title: "Task 12", stepId: ids[0]},
+    {id: uuidv4(), title: "CSS Avançado", stepId: ids[1]}, 
+    {id: uuidv4(), title: "Referencia de componentes (useRef)", stepId: ids[2]}, 
+    {id: uuidv4(), title: "Javascript - Métodos de array", stepId: ids[2]},
+    {id: uuidv4(), title: "Javascript - Classe", stepId: ids[2]}, 
+    {id: uuidv4(), title: "Vida do componente", stepId: 4}, 
+    {id: uuidv4(), title: "HTML", stepId: ids[3]},
+    {id: uuidv4(), title: "Task 30", stepId: ids[3]},
+    {id: uuidv4(), title: "Estado dos componentes (useState)", stepId: ids[3]},
 ]
 
 function Kanban() {
@@ -50,8 +54,7 @@ function Kanban() {
       <>
         <PageTitle text='Me plano de estudos'/>
         <div className="content">
-            {mySteps.map(step => 
-            <> 
+            {mySteps.map(step =>
                 <DraggablesContainer
                     key={step.id}
                     draggableContainerId={step.id}
@@ -68,9 +71,10 @@ function Kanban() {
                                 draggable={item}
                             >{item.title}</Draggable>
                         ) : <span>Adicione um novo tema...</span>}
+                        
                     <Input draggableContainerId={step.id}/>
                 </DraggablesContainer>
-            </>)}
+            )}
         </div>
       </>
     )
