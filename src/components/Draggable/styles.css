@@ -1,0 +1,112 @@
+.draggable-container {
+    width: 20%;
+    background-color: #1C1C1C;
+
+    margin: 5px;
+
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.4rem;
+
+    padding: 10px;
+}
+
+.title-container {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title-container svg {
+    height: 40px;
+    margin: 3px;
+
+    padding: 10px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-container  svg:hover{
+    cursor: pointer;
+    background-color: #2c2c2c;
+}
+
+
+.card {
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    padding: 5px;
+
+    width: 100%;
+    border: 2px solid transparent;
+
+    min-height: 60px;
+    font-size: 0.8rem;
+}
+
+.card:hover {
+    cursor: grab;
+    border: 2px solid #1E90FF;
+}
+
+.card:active {
+    cursor: grabbing;
+}
+
+.button {
+    height: 30px;
+    width: 150px;
+
+    background-color: transparent;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+
+    color: #fff;
+
+    padding: 5px 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.input {
+    height: 30px;
+
+    background-color: transparent;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+
+    color: #fff;
+
+    padding: 5px 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: 2px solid gray;
+}
+
+.input:hover {
+    border: 2px solid #1E90FF;
+}
+
+.button svg {
+    height: 20px;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: #2c2c2c;
+}
